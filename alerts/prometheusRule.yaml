@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: pod-alert
+  namespace: prometheus-example-app
+spec:
+  groups:
+  - name: demoex
+    rules:
+    - alert: "Too Few Pods"
+      expr: count(kube_pod_info{pod =~"prometheus-example-app.*"}) < 2
+      labels:
+        severity: 'warning'
+        receiver: 'line'
+      annotations:
+        message: "too few running pods"

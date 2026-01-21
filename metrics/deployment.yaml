@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: prometheus-example-app
+  name: prometheus-example-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-example-app
+  template:
+    metadata:
+      labels:
+        app: prometheus-example-app
+    spec:
+      containers:
+      - image: ghcr.io/rhobs/prometheus-example-app:0.4.2
+        imagePullPolicy: IfNotPresent
+        name: prometheus-example-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: coo-demo
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: coo-demo
+ template:
+   metadata:
+     labels:
+       app: coo-demo
+   spec:
+     containers:
+     - name: httpserver
+       image: registry.access.redhat.com/ubi9/python-311:1
+       command:
+       - bash
+       - -c
+       - |2-
+         pip install prometheus_client && python - <<EOF
+         from http.server import BaseHTTPRequestHandler, HTTPServer
+         from prometheus_client import start_http_server, Counter
+         class HTTPRequestHandler(BaseHTTPRequestHandler):
+           def do_GET(self):
+             if self.path == '/':
+               self.send_response(200)
+               self.end_headers()
+               self.wfile.write(b'<html>Hello!</html>\n')
+               respCtr.labels(response='200').inc()
+             else:
+               self.send_error(404)
+               respCtr.labels(response='404').inc()
+         start_http_server(9000)
+         respCtr = Counter('coo_responses','Responses',["response"])
+         HTTPServer(("", 8080), HTTPRequestHandler).serve_forever()
+         EOF
