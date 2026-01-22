@@ -34,12 +34,6 @@ oc apply -f lokistack/lokistack.yaml
 
 # Install Red Hat OpenShift Logging Operator
 
-- Create the logging namespace using `namespace.yaml`
-
-```bash
-oc apply -f logging-operator/namespace.yaml
-```
-
 - Create an `OperatorGroup`
 ```bash
 oc apply -f logging-operator/operatorgroup.yaml
