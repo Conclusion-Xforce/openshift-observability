@@ -9,7 +9,7 @@ oc apply -f lokistack/namespace.yaml
 
 - First install the Lokistack operator
 ```bash
-oc apply -f lokistack/operatorgroup.yaml
+oc apply -f lokistack/operator-group.yaml
 ```
 
 - Apply the subscription
