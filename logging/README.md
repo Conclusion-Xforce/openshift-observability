@@ -22,6 +22,11 @@ oc apply -f lokistack/subscription.yaml
 oc apply -f lokistack/object-bucket-claim.yaml
 ```
 
+- Configure Secret and apply
+```bash
+oc apply -f lokistack/secret.yaml
+```
+
 - Create Lokistack cluster
 ```bash
 oc apply -f lokistack/lokistack.yaml
