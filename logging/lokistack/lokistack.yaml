@@ -17,5 +17,6 @@ spec:
     secret:
       name: logging-bucket
       type: s3 
+  storageClassName: managed-csi
   tenants:
     mode: openshift-logging 
