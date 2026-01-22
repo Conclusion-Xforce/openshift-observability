@@ -15,7 +15,7 @@ spec:
     - version: v13
       effectiveDate: 2025-12-12
     secret:
-      name: logging-bucket
+      name: logging-loki-s3
       type: s3 
   storageClassName: managed-csi
   tenants:
