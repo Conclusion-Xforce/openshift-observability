@@ -13,10 +13,9 @@ spec:
   storage:
     schemas:
     - version: v13
-      effectiveDate: "<yyyy>-<mm>-<dd>" 
+      effectiveDate: 2026-12-12
     secret:
-      name: logging-loki-s3 
+      name: logging-bucket
       type: s3 
-  storageClassName: <storage_class_name> 
   tenants:
     mode: openshift-logging 
