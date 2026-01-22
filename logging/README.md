@@ -58,12 +58,24 @@ oc adm policy add-cluster-role-to-user collect-infrastructure-logs -z logging-co
 oc apply -f logging-operator/cluster-log-forwarder.yaml
 ```
 
+# Install the cluster observability operator
+
+- Create the subscription
+```bash
+oc apply -f cluster-observability-operator/subscription.yaml
+```
+
+- Create the ui-plugin
+```bash
+oc apply -f cluster-observability-operator/ui-plugin.yaml
+```
+
 ## Create application and visualize logs
 
 - Create the application namespace
 
 ```bash
-oc apply -f namespace.yaml
+oc apply -f logging-web-app/namespace.yaml
 ```
 
 - Switch to your project and make it the default in your configuration.
@@ -75,9 +87,9 @@ oc project logging-web-app
 - Apply the configuration to the cluster
 
 ```bash
-oc apply -f deployment.yaml
-oc apply -f service.yaml
-oc apply -f route.yaml
+oc apply -f logging-web-app/deployment.yaml
+oc apply -f logging-web-app/service.yaml
+oc apply -f logging-webp-app/route.yaml
 ```
 
 - Check that the pod is running
