@@ -89,7 +89,7 @@ oc project logging-web-app
 ```bash
 oc apply -f logging-web-app/deployment.yaml
 oc apply -f logging-web-app/service.yaml
-oc apply -f logging-webp-app/route.yaml
+oc apply -f logging-web-app/route.yaml
 ```
 
 - Check that the pod is running
