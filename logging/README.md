@@ -36,7 +36,7 @@ oc apply -f lokistack/lokistack.yaml
 
 - Create an `OperatorGroup`
 ```bash
-oc apply -f logging-operator/operatorgroup.yaml
+oc apply -f logging-operator/operator-group.yaml
 ```
 
 - Create a Subscription object to subscribe the namespace to the Red Hat OpenShift Logging Operator
