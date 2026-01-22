@@ -15,14 +15,17 @@ oc apply -f lokistack/operator-group.yaml
 - Apply the subscription
 ```bash
 oc apply -f lokistack/subscription.yaml
+```
 
 - Create Object Bucket Claim
 ```bash
 oc apply -f lokistack/object-bucket-claim.yaml
+```
 
 - Create Lokistack cluster
 ```bash
 oc apply -f lokistack/lokistack.yaml
+```
 
 # Install Red Hat OpenShift Logging Operator
 
