@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: httpd
+  name: logging-web-app
+  namespace: logging-web-app
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+    name: httpd
+  selector:
+    app: httpd
+  type: ClusterIP
