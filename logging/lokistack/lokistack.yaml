@@ -13,7 +13,7 @@ spec:
   storage:
     schemas:
     - version: v13
-      effectiveDate: 2025-12-12
+      effectiveDate: "2025-12-12"
     secret:
       name: logging-loki-s3
       type: s3 
