@@ -16,7 +16,7 @@ oc apply -f cluster-monitoring-config.yaml
 ```
 
 - Review the `user-workload-monitoring-config.yaml`
-- Apply the configuration to create the ConfigMap object
+- Apply the configuration to create the ConfigMap object that saves the prometheus data for 10days
 ```
 oc apply -f user-workload-monitoring-config.yaml
 ```
