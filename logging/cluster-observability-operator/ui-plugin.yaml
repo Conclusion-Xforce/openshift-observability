@@ -1,7 +1,8 @@
 apiVersion: observability.openshift.io/v1alpha1
 kind: UIPlugin
 metadata:
-  name: logging  
+  name: logging
+  namespace: openshift-logging
 spec:
   type: Logging  
   logging:
